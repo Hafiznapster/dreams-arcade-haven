@@ -79,6 +79,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ['Poppins', 'sans-serif'],
+				serif: ['Playfair Display', 'serif']
 			},
 			keyframes: {
 				'accordion-down': {
@@ -131,6 +132,10 @@ export default {
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+			},
+			transitionDuration: {
+				'1500': '1500ms',
+				'2000': '2000ms',
 			}
 		}
 	},

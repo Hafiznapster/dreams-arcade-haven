@@ -29,34 +29,39 @@ const HeroSection = ({
       {images.map((image, index) => (
         <div
           key={index}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out ${
+          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1500 ease-in-out ${
             index === currentSlide ? "opacity-100" : "opacity-0"
           }`}
           style={{ backgroundImage: `url(${image})` }}
         >
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black/20" />
         </div>
       ))}
       
       {/* Content */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4 z-10">
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 animate-fade-in">
+        <h1 className="text-4xl md:text-5xl lg:text-7xl font-bold text-white mb-6 animate-fade-in font-serif tracking-tight leading-tight">
           {title}
         </h1>
         {subtitle && (
-          <p className="text-xl md:text-2xl text-white/90 max-w-2xl animate-fade-in" style={{ animationDelay: "0.2s" }}>
+          <p className="text-xl md:text-2xl text-white/95 max-w-2xl animate-fade-in mb-8" style={{ animationDelay: "0.3s" }}>
             {subtitle}
           </p>
         )}
+        <div className="animate-fade-in" style={{ animationDelay: "0.5s" }}>
+          <a href="/contact" className="button-primary text-lg">
+            Book Your Stay
+          </a>
+        </div>
       </div>
       
       {/* Slide indicators */}
-      <div className="absolute bottom-6 left-0 right-0 flex justify-center gap-2 z-10">
+      <div className="absolute bottom-8 left-0 right-0 flex justify-center gap-2 z-10">
         {images.map((_, index) => (
           <button
             key={index}
             className={`w-2 h-2 rounded-full transition-all duration-300 ${
-              index === currentSlide ? "bg-white w-6" : "bg-white/50"
+              index === currentSlide ? "bg-white w-8" : "bg-white/50"
             }`}
             onClick={() => setCurrentSlide(index)}
             aria-label={`Go to slide ${index + 1}`}
