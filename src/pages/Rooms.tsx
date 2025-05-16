@@ -70,20 +70,24 @@ const RoomDetail = ({
       </div>
       
       <div className={`${reverse ? 'lg:order-1 animate-fade-in-left' : 'animate-fade-in-right'} grid grid-cols-2 gap-4`}>
-        <div className="overflow-hidden rounded-lg">
-          <img 
-            src={images[0]} 
-            alt={title} 
-            className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
-          />
-        </div>
-        <div className="overflow-hidden rounded-lg mt-6">
-          <img 
-            src={images[1]} 
-            alt={title} 
-            className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
-          />
-        </div>
+        {images.slice(0, 2).map((image, index) => (
+          <div key={index} className={`overflow-hidden rounded-lg ${index === 1 ? 'mt-6' : ''}`}>
+            <img 
+              src={image} 
+              alt={`${title} - Image ${index + 1}`} 
+              className="w-full h-full object-cover hover:scale-110 transition-transform duration-700" 
+            />
+          </div>
+        ))}
+        {images.length > 2 && (
+          <div className="col-span-2 overflow-hidden rounded-lg mt-4">
+            <img 
+              src={images[2]} 
+              alt={`${title} - Image 3`} 
+              className="w-full h-64 object-cover hover:scale-110 transition-transform duration-700" 
+            />
+          </div>
+        )}
       </div>
     </div>
   );
@@ -177,7 +181,8 @@ const Rooms = () => {
       ],
       images: [
         "/lovable-uploads/135e6e68-4c7b-4c80-a6c3-c3fcc8a45fce.png", 
-        "/lovable-uploads/870cde52-feca-4b2a-81e8-379f5399c247.png"
+        "/lovable-uploads/870cde52-feca-4b2a-81e8-379f5399c247.png",
+        "/lovable-uploads/extended-family-suite-bed.jpg"
       ]
     }
   ];
